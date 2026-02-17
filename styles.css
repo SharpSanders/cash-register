@@ -1,0 +1,313 @@
+/* ============ Base ============ */
+:root {
+  --bg: #0b0f17;
+  --panel: #0f1726;
+  --panel-2: #0d1422;
+  --text: #e7eefc;
+  --muted: #9fb1d1;
+  --line: rgba(231, 238, 252, 0.12);
+  --accent: #2e6ebe;   /* fits your brand vibe */
+  --accent-2: #00bfa6; /* subtle contrast */
+  --danger: #ff4d4d;
+  --good: #27d17f;
+  --shadow: 0 18px 60px rgba(0, 0, 0, 0.45);
+  --radius: 18px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial,
+    "Apple Color Emoji", "Segoe UI Emoji";
+  color: var(--text);
+  background: radial-gradient(
+      1200px 600px at 20% 10%,
+      rgba(46, 110, 190, 0.22),
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 500px at 80% 20%,
+      rgba(0, 191, 166, 0.16),
+      transparent 55%
+    ),
+    radial-gradient(1000px 700px at 50% 95%, rgba(255, 255, 255, 0.05), transparent
+        60%),
+    var(--bg);
+  padding: 28px 16px;
+}
+
+/* ============ Layout ============ */
+.app {
+  max-width: 920px;
+  margin: 0 auto;
+  display: grid;
+  gap: 16px;
+}
+
+.header {
+  padding: 18px 18px 6px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(46, 110, 190, 0.14);
+  border: 1px solid rgba(46, 110, 190, 0.25);
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 10px 0 6px;
+  font-size: clamp(28px, 4vw, 40px);
+  letter-spacing: -0.8px;
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.kbd {
+  padding: 2px 8px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.05);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  font-size: 0.95em;
+}
+
+/* ============ Panels ============ */
+.panel {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.06),
+    rgba(255, 255, 255, 0.02)
+  );
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.panel-secondary {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.015)
+  );
+}
+
+.panel-top {
+  padding: 18px 18px 6px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  border-bottom: 1px solid rgba(231, 238, 252, 0.08);
+}
+
+.panel-title {
+  margin: 0;
+  font-size: 16px;
+  letter-spacing: 0.2px;
+}
+
+.panel-hint {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* ============ Form ============ */
+.grid {
+  padding: 18px;
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 1.3fr 0.7fr;
+}
+
+@media (max-width: 760px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+}
+
+.label {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.help {
+  font-size: 12px;
+  color: rgba(159, 177, 209, 0.85);
+}
+
+.input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-radius: 14px;
+  border: 1px solid rgba(231, 238, 252, 0.14);
+  background: rgba(15, 23, 38, 0.65);
+  overflow: hidden;
+  transition: border-color 120ms ease;
+}
+
+.input-wrap:focus-within {
+  border-color: rgba(46, 110, 190, 0.65);
+}
+
+.prefix {
+  padding: 12px 12px;
+  color: rgba(159, 177, 209, 0.95);
+  border-right: 1px solid rgba(231, 238, 252, 0.08);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+}
+
+input {
+  width: 100%;
+  padding: 12px 12px;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--text);
+  font-size: 15px;
+}
+
+input::placeholder {
+  color: rgba(159, 177, 209, 0.6);
+}
+
+/* ============ Buttons ============ */
+.actions {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+}
+
+.btn {
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(46, 110, 190, 0.45);
+  background: linear-gradient(
+    180deg,
+    rgba(46, 110, 190, 0.75),
+    rgba(46, 110, 190, 0.45)
+  );
+  color: var(--text);
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  transition: transform 120ms ease, filter 120ms ease, border-color 120ms ease;
+}
+
+.btn:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0px);
+  filter: brightness(0.98);
+}
+
+.btn-ghost {
+  border: 1px solid rgba(231, 238, 252, 0.16);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--muted);
+}
+
+.btn-ghost:hover {
+  color: var(--text);
+}
+
+/* ============ Display ============ */
+.display {
+  padding: 0 18px 18px;
+  display: grid;
+  gap: 8px;
+}
+
+.display-label {
+  color: var(--muted);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+}
+
+.display-value {
+  margin: 0;
+  padding: 14px 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(231, 238, 252, 0.14);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.25),
+    rgba(0, 0, 0, 0.1)
+  );
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  line-height: 1.45;
+  word-break: break-word;
+}
+
+/* ============ Units list ============ */
+.units {
+  padding: 14px 18px 18px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+@media (max-width: 760px) {
+  .units {
+    grid-template-columns: 1fr;
+  }
+}
+
+.unit {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(231, 238, 252, 0.12);
+  background: rgba(15, 23, 38, 0.55);
+  color: rgba(231, 238, 252, 0.92);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  font-size: 13px;
+}
+
+/* ============ Footer ============ */
+.footer {
+  padding: 8px 18px 18px;
+}
+
+.footer-text {
+  margin: 0;
+  color: rgba(159, 177, 209, 0.8);
+  font-size: 12px;
+}

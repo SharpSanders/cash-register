@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cash Register</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <main class="app">
+      <header class="header">
+        <div class="badge">Better Endeavors • Register</div>
+        <h1 class="title">Cash Register</h1>
+        <p class="subtitle">
+          Enter the cash amount and hit <span class="kbd">Purchase</span> to
+          calculate change.
+        </p>
+      </header>
+
+      <section class="panel">
+        <div class="panel-top">
+          <h2 class="panel-title">Checkout</h2>
+          <p class="panel-hint">
+            Tip: Try <strong>price = 19.5</strong>, cash <strong>20</strong> (FCC
+            tests)
+          </p>
+        </div>
+
+        <div class="grid">
+          <label class="field" for="cash">
+            <span class="label">Cash given ($)</span>
+            <div class="input-wrap">
+              <span class="prefix">$</span>
+              <input
+                id="cash"
+                type="number"
+                inputmode="decimal"
+                min="0"
+                step="0.01"
+                placeholder="e.g., 20"
+                aria-describedby="cash-help"
+              />
+            </div>
+            <span id="cash-help" class="help">
+              Must be greater than or equal to the item price.
+            </span>
+          </label>
+
+          <div class="actions">
+            <button id="purchase-btn" class="btn" type="button">
+              Purchase
+            </button>
+            <button id="clear-btn" class="btn btn-ghost" type="button">
+              Clear
+            </button>
+          </div>
+        </div>
+
+        <div class="display">
+          <div class="display-label">Change Due</div>
+          <!-- Required element/id for FCC -->
+          <p id="change-due" class="display-value">
+            Status will appear here…
+          </p>
+        </div>
+      </section>
+
+      <section class="panel panel-secondary" aria-label="Currency guide">
+        <h2 class="panel-title">Currency Units</h2>
+        <div class="units">
+          <div class="unit"><span>PENNY</span><span>$0.01</span></div>
+          <div class="unit"><span>NICKEL</span><span>$0.05</span></div>
+          <div class="unit"><span>DIME</span><span>$0.10</span></div>
+          <div class="unit"><span>QUARTER</span><span>$0.25</span></div>
+          <div class="unit"><span>ONE</span><span>$1</span></div>
+          <div class="unit"><span>FIVE</span><span>$5</span></div>
+          <div class="unit"><span>TEN</span><span>$10</span></div>
+          <div class="unit"><span>TWENTY</span><span>$20</span></div>
+          <div class="unit"><span>ONE HUNDRED</span><span>$100</span></div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <p class="footer-text">
+          Built for FreeCodeCamp • Keep it simple, keep it shipping.
+        </p>
+      </footer>
+    </main>
+
+    <script src="script.js"></script>
+
+    <!-- Small UI-only helper (safe: doesn't affect FCC tests) -->
+    <script>
+      const clearBtn = document.getElementById("clear-btn");
+      const cash = document.getElementById("cash");
+      const changeDue = document.getElementById("change-due");
+
+      clearBtn.addEventListener("click", () => {
+        cash.value = "";
+        changeDue.textContent = "Status will appear here…";
+        cash.focus();
+      });
+    </script>
+  </body>
+</html>
