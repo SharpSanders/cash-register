@@ -7,7 +7,7 @@ Built as part of the FreeCodeCamp JavaScript certification and enhanced with imp
 ## Live Demo
 https://sharpsanders.github.io/cash-register/
 
-![Cash Register Screenshot](./img/Screenshot-cash-register.png)
+![Cash Register Screenshot](./img/Screenshot%20cash-regitster.png)
 
 ---
 
